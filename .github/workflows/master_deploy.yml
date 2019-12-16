@@ -34,5 +34,5 @@ jobs:
         run: |
         git config --global user.email "your_github_email>"
         git config --global user.name "your_github_username>"
-        git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/tiendn/progress-bars.git
+        git remote set-url origin https://{{secrets.GH_TOKEN}}@github.com/tiendn/progress-bars.git
         yarn deploy
