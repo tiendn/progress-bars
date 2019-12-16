@@ -16,20 +16,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1.0.3
+      - name: Cache node_modules
+        id: cached-yarn
+        uses: actions/cache@v1.0.3
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          path: node_modules
+          key: ${{ runner.os }}-progress-bars
 
-      # - name: Install Packages
-      #   if: steps.cache.outputs.cache-hit != 'true'
-      #   run: yarn
+      - name: Install package
+        if: steps.cached-yarn.outputs.cache-hit != 'true'
+        run: yarn
 
       - name: Testing
         run: yarn test-ci
