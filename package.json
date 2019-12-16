@@ -32,6 +32,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "moduleFileExtensions": [
+    "js",
+    "jsx",
+    "json"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
