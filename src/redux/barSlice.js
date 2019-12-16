@@ -7,8 +7,8 @@ const defaultState = {
   buttons: [],
   bars: [],
   limit: 9999,
-  currentActiveBar: 0,
-  loading: true,
+  currentBarIndex: 0,
+  loading: false,
 };
 
 const barSlice = createSlice({
@@ -23,19 +23,21 @@ const barSlice = createSlice({
     },
     fetchBarDataDone(state, action) {
       const { buttons, bars, limit } = action.payload;
+
       state.buttons = buttons || defaultState.buttons;
       state.bars = bars || defaultState.bars;
       state.limit = limit || defaultState.limit;
     },
     changeActiveBar(state, action) {
-      state.currentActiveBar = action.payload.barIndex;
+      state.currentBarIndex = action.payload.barIndex;
     },
     changeBarValue(state, action) {
-      const { barIndex, step } = action.payload;
-      let newBarValue = state.bar[barIndex] + step;
+      const { point } = action.payload;
+      const { currentBarIndex, bars } = state;
+      let newBarValue = bars[currentBarIndex] + point;
 
       if (newBarValue < 0) newBarValue = 0;
-      state.bar[barIndex] = newBarValue;
+      state.bars[currentBarIndex] = newBarValue;
     },
   },
 });
@@ -53,8 +55,9 @@ export const getBarData = () => async dispatch => {
     dispatch(showLoading());
     const data = await getBars();
     dispatch(hideLoading());
-    dispatch(fetchBarDataDone({ payload: data }));
+    dispatch(fetchBarDataDone({ ...data }));
   } catch (err) {
+    dispatch(hideLoading());
     notification.error({ message: err.message });
     console.log(err);
   }

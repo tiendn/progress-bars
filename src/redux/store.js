@@ -7,8 +7,8 @@ const store = configureStore({
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./giphySlice', () => {
-    const newRootReducer = require('./giphySlice').default;
+  module.hot.accept('./barSlice', () => {
+    const newRootReducer = require('./barSlice').default;
     store.replaceReducer(newRootReducer);
   });
 }

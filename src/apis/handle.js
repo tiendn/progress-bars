@@ -1,18 +1,16 @@
 const ERROR_MESSAGE = `API request failed.`;
 
 const returnError = message => {
-  return {
-    message,
-  };
+  throw new Error(message);
 };
 
 export const parseResponse = response => {
   try {
-    const { meta } = response.data;
-    if (meta.status === 200) {
-      return response.data;
+    const { status, statusText, data } = response;
+    if (status === 200) {
+      return data;
     } else {
-      return returnError(meta.msg || ERROR_MESSAGE);
+      return returnError(statusText || ERROR_MESSAGE);
     }
   } catch (e) {
     return returnError(ERROR_MESSAGE);
