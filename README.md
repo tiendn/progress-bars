@@ -1,3 +1,5 @@
+![Build Status](https://github.com/tiendn/progress-bars/workflows/master/badge.svg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
