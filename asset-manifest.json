@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/progress-bars/static/css/main.d1b05096.chunk.css",
-    "main.js": "/progress-bars/static/js/main.f2ba3cd0.chunk.js",
-    "main.js.map": "/progress-bars/static/js/main.f2ba3cd0.chunk.js.map",
+    "main.css": "/progress-bars/static/css/main.89c4090e.chunk.css",
+    "main.js": "/progress-bars/static/js/main.ca681df2.chunk.js",
+    "main.js.map": "/progress-bars/static/js/main.ca681df2.chunk.js.map",
     "runtime-main.js": "/progress-bars/static/js/runtime-main.a3b96c60.js",
     "runtime-main.js.map": "/progress-bars/static/js/runtime-main.a3b96c60.js.map",
-    "static/js/2.37cdf2c4.chunk.js": "/progress-bars/static/js/2.37cdf2c4.chunk.js",
-    "static/js/2.37cdf2c4.chunk.js.map": "/progress-bars/static/js/2.37cdf2c4.chunk.js.map",
+    "static/css/2.bea6f0b1.chunk.css": "/progress-bars/static/css/2.bea6f0b1.chunk.css",
+    "static/js/2.38952e73.chunk.js": "/progress-bars/static/js/2.38952e73.chunk.js",
+    "static/js/2.38952e73.chunk.js.map": "/progress-bars/static/js/2.38952e73.chunk.js.map",
     "index.html": "/progress-bars/index.html",
-    "precache-manifest.84c7da6f825cdf46e1d7564ab3bf1e0a.js": "/progress-bars/precache-manifest.84c7da6f825cdf46e1d7564ab3bf1e0a.js",
+    "precache-manifest.fb82f232064f77bf3b66566051a253cf.js": "/progress-bars/precache-manifest.fb82f232064f77bf3b66566051a253cf.js",
     "service-worker.js": "/progress-bars/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/progress-bars/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.37cdf2c4.chunk.js.LICENSE": "/progress-bars/static/js/2.37cdf2c4.chunk.js.LICENSE",
-    "static/media/logo.svg": "/progress-bars/static/media/logo.5d5d9eef.svg"
+    "static/css/2.bea6f0b1.chunk.css.map": "/progress-bars/static/css/2.bea6f0b1.chunk.css.map",
+    "static/css/main.89c4090e.chunk.css.map": "/progress-bars/static/css/main.89c4090e.chunk.css.map",
+    "static/js/2.38952e73.chunk.js.LICENSE": "/progress-bars/static/js/2.38952e73.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.a3b96c60.js",
-    "static/js/2.37cdf2c4.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.f2ba3cd0.chunk.js"
+    "static/css/2.bea6f0b1.chunk.css",
+    "static/js/2.38952e73.chunk.js",
+    "static/css/main.89c4090e.chunk.css",
+    "static/js/main.ca681df2.chunk.js"
   ]
 }
