@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { parseResponse, handleError } from '.';
+import { parseResponse, handleError } from './handle';
 
 export default class Request {
   // Timeout request is 5s

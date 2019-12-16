@@ -1,8 +1,8 @@
 const ERROR_MESSAGE = `API request failed.`;
 
-const returnError = err => {
+const returnError = message => {
   return {
-    errorMessage: err,
+    message,
   };
 };
 
