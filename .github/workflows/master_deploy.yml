@@ -28,7 +28,7 @@ jobs:
         run: yarn
 
       - name: Testing
-        run: yarn test
+        run: yarn test-ci
 
       - name: Deploy to GH Pages
         run: yarn deploy
