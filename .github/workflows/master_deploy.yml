@@ -18,6 +18,6 @@ jobs:
       - name: Install Packages
         run: yarn
       - name: Install Packages
-        run: yarn test:ci
+        run: yarn test-ci
       - name: Deploy to GH Pages
         run: yarn deploy
