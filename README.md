@@ -1,4 +1,4 @@
-![Build Status](https://github.com/tiendn/progress-bars/workflows/Progress Bars/badge.svg)
+![Build Status](https://github.com/tiendn/progress-bars/workflows/Progress%20Bars/badge.svg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
