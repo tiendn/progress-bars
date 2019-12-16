@@ -39,7 +39,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint && pretty-quick --staged"
+      "pre-commit": "eslint src/**/*.js && pretty-quick --staged"
     }
   },
   "devDependencies": {
