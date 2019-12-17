@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Cascader } from 'antd';
+import { Button, Select } from 'antd';
 
 import BarItem from './BarItem';
 import { changeBarValue, changeActiveBar } from '../redux/barSlice';
+
+const { Option } = Select;
 
 const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
   const onChangePoint = point => {
@@ -20,10 +22,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
     BarComponents.push(
       <BarItem active={currentBarIndex === index} limit={limit} value={bar} />,
     );
-    barOptions.push({
-      label: `#progress ${index}`,
-      value: index,
-    });
+    barOptions.push(<Option value={index}>#progress {index}</Option>);
   });
 
   const PointButtons = buttons.map(point => (
@@ -42,13 +41,14 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
       <h3 style={{ color: 'gray', marginBottom: '5%' }}>Limit: {limit}</h3>
       <div className="barContainer">{BarComponents}</div>
       <div className="barActions">
-        <Cascader
-          value={[currentBarIndex]}
-          options={barOptions}
+        <Select
+          value={currentBarIndex}
           onChange={onChangeCurrentBar}
           placeholder="Please select"
           style={{ marginRight: 10 }}
-        />
+        >
+          {barOptions}
+        </Select>
         {PointButtons}
       </div>
     </div>
