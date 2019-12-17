@@ -1,7 +1,12 @@
-// import barReducer from '../barSlice';
-
-import { defaultState } from '../barSlice';
+import {
+  defaultState,
+  hideLoading,
+  changeActiveBar,
+  changeBarValue,
+  fetchBarDataDone,
+} from '../barSlice';
 import configureStore from '../../redux/store';
+import mockData from '../../../mock/data';
 
 describe('barSlice', () => {
   let state;
@@ -16,18 +21,36 @@ describe('barSlice', () => {
     expect(store.getState().bar).toEqual(state);
   });
 
-  //   it('should handle the getBarAsync action correctly', () => {
-  //     const params = { buttons: [1, 2, 3], bars: [23, -10], limit: 100 };
-  //     const expectedResult = { ...state, ...params };
-  //     expect(barReducer(state, getBarAsync(params))).toEqual(expectedResult);
-  //   });
-  //   it('should handle the loading action correctly', () => {
-  //     const expectedResult = { ...state, loading: true };
-  //     expect(barReducer(state, loading())).toEqual(expectedResult);
-  //   });
+  it('should hide loading with dispatch action', () => {
+    store.dispatch(hideLoading());
+    expect(store.getState().bar.loading).toEqual(false);
+  });
 
-  //   it('should handle the stopLoading action correctly', () => {
-  //     const expectedResult = { ...state, loading: false };
-  //     expect(barReducer(state, stopLoading())).toEqual(expectedResult);
-  //   });
+  it('should change right bar index', () => {
+    const newBarIndex = 1;
+    store.dispatch(changeActiveBar({ barIndex: newBarIndex }));
+    expect(store.getState().bar.currentBarIndex).toEqual(newBarIndex);
+  });
+
+  it('should change bar value with bar[0], mock value = 59, point +30', () => {
+    const point = 30;
+    const barIndex = 0;
+    store.dispatch(fetchBarDataDone({ ...mockData }));
+    store.dispatch(changeActiveBar({ barIndex }));
+    store.dispatch(changeBarValue({ point }));
+    const { currentBarIndex, bars } = store.getState().bar;
+
+    expect(bars[currentBarIndex]).toEqual(89);
+  });
+
+  it('should change right bar value to 0 with bar[0], mock value = 59, point -90', () => {
+    const point = -90;
+    const barIndex = 0;
+    store.dispatch(fetchBarDataDone({ ...mockData }));
+    store.dispatch(changeActiveBar({ barIndex }));
+    store.dispatch(changeBarValue({ point }));
+    const { currentBarIndex, bars } = store.getState().bar;
+
+    expect(bars[currentBarIndex]).toEqual(0);
+  });
 });

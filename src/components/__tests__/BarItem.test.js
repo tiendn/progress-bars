@@ -29,3 +29,10 @@ it('render with class "barItemLimit" when the value over limit', async () => {
 
   expect(divHighlight).toHaveClass('barItemLimit');
 });
+
+it('render with class "barItemActive" if index active', async () => {
+  const { findByTestId } = render(<BarItem value={120} limit={100} active />);
+  const divHighlight = await findByTestId('barItemHightlight');
+
+  expect(divHighlight).toHaveClass('barItemActive');
+});

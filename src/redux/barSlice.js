@@ -32,12 +32,19 @@ const barSlice = createSlice({
       state.currentBarIndex = action.payload.barIndex;
     },
     changeBarValue(state, action) {
-      const { point } = action.payload;
-      const { currentBarIndex, bars } = state;
-      let newBarValue = bars[currentBarIndex] + point;
+      try {
+        if (state.bars.length === 0) return;
 
-      if (newBarValue < 0) newBarValue = 0;
-      state.bars[currentBarIndex] = newBarValue;
+        const { point } = action.payload;
+        const { currentBarIndex, bars } = state;
+        let newBarValue = bars[currentBarIndex] + point;
+
+        if (newBarValue < 0) newBarValue = 0;
+        state.bars[currentBarIndex] = newBarValue;
+      } catch (err) {
+        // console.log(err);
+        // Report bug
+      }
     },
   },
 });
