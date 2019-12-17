@@ -38,6 +38,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
   return (
     <div className="appContainer">
       <h1>Progress Bars Demo</h1>
+      <h3 style={{ color: 'gray' }}>Author: Dao Nam Tien</h3>
       <h3 style={{ color: 'gray', marginBottom: '5%' }}>Limit: {limit}</h3>
       <div className="barContainer">{BarComponents}</div>
       <div className="barActions">
