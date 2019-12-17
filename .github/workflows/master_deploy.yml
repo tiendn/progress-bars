@@ -36,10 +36,9 @@ jobs:
 
       - name: Testing
         run: yarn test-ci
-
-      - name: Deploy to GH Pages
-        run: |
-          git config --global user.email ${{secrets.GH_EMAIL}}
-          git config --global user.name "tiendn"
-          git remote set-url origin https://${{secrets.GH_TOKEN}}@github.com/tiendn/progress-bars.git
-          npm run deploy
+      # - name: Deploy to GH Pages
+      #   run: |
+      #     git config --global user.email ${{secrets.GH_EMAIL}}
+      #     git config --global user.name "tiendn"
+      #     git remote set-url origin https://${{secrets.GH_TOKEN}}@github.com/tiendn/progress-bars.git
+      #     npm run deploy
