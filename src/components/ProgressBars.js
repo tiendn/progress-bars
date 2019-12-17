@@ -22,7 +22,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
     BarComponents.push(
       <BarItem active={currentBarIndex === index} limit={limit} value={bar} />,
     );
-    barOptions.push(<Option value={index}>#progress {index}</Option>);
+    barOptions.push(<Option value={index}>#progress {index + 1}</Option>);
   });
 
   const PointButtons = buttons.map(point => (
