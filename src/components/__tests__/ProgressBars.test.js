@@ -1,8 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import ProgressBars from '../ProgressBars';
 import configureStore from '../../redux/store';
+import mockData from '../../../mock/data';
+import { fetchBarDataDone, changeActiveBar } from '../../redux/barSlice';
 
 describe('ProgressBars testing', () => {
   let store;
@@ -20,5 +22,25 @@ describe('ProgressBars testing', () => {
 
     expect(baseElement).toMatchSnapshot();
     expect(baseElement).not.toBeNull();
+  });
+
+  it('change bar value after fire event click button, with current index = 0, value = 59, add +41 with button index = 0', async () => {
+    const barIndex = 0;
+
+    store.dispatch(fetchBarDataDone({ ...mockData }));
+    store.dispatch(changeActiveBar({ barIndex }));
+
+    const { getAllByTestId } = render(
+      <Provider store={store}>
+        <ProgressBars />
+      </Provider>,
+    );
+
+    const BarButtonFirst = await getAllByTestId('barButton')[0];
+    const BarItemFirst = await getAllByTestId('barItemValue')[0];
+
+    fireEvent.click(BarButtonFirst);
+
+    expect(BarItemFirst.innerHTML).toBe('58%');
   });
 });

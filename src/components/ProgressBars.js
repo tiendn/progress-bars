@@ -27,6 +27,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
 
   const PointButtons = buttons.map(point => (
     <Button
+      data-testid="barButton"
       key={point}
       className="barAction"
       onClick={() => onChangePoint(point)}
