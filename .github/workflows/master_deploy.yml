@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - cachee-ci
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,23 +17,23 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # - name: Get cache node_modules
-      #   id: cached-yarn
-      #   uses: actions/cache@v1.0.3
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-progress-bars
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       # - name: Install package
-      #   if: steps.cached-yarn.outputs.cache-hit != 'true'
       #   run: yarn
-
-      - name: Install package
-        run: yarn
-
       - name: Testing
         run: yarn test-ci
-
       - name: Deploy to GH Pages
         run: |
           git config --global user.email ${{secrets.GH_EMAIL}}
