@@ -57,7 +57,7 @@ $mobile: 768px;
 
 .appContainer {
   width: $maxWidth;
-  margin: 5% (100 - $maxWidth) / 2;
+  margin: 0 (100 - $maxWidth) / 2;
   display: flex;
 
   flex-direction: column;
@@ -146,9 +146,4 @@ $mobile: 768px;
       }
     }
   }
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
 }
