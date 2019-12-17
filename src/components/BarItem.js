@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const BarItem = ({ active, limit, value }) => {
   const percent = Math.floor((value / limit) * 100);
@@ -18,10 +19,22 @@ const BarItem = ({ active, limit, value }) => {
 
   return (
     <div className="barItem">
-      <div className={backgroundClassName} style={{ width: `${width}%` }} />
-      <span className={textValueClassName}>{percent}%</span>
+      <div
+        data-testid="barItemHightlight"
+        className={backgroundClassName}
+        style={{ width: `${width}%` }}
+      />
+      <span data-testid="barItemValue" className={textValueClassName}>
+        {percent}%
+      </span>
     </div>
   );
+};
+
+BarItem.propTypes = {
+  active: PropTypes.bool.isRequired,
+  limit: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default BarItem;
