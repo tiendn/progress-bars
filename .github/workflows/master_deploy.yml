@@ -16,25 +16,25 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # - name: Get cache node_modules
-      #   id: cached-yarn
-      #   uses: actions/cache@v1.0.3
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-progress-bars
-
-      # - name: Install package
-      #   if: steps.cached-yarn.outputs.cache-hit != 'true'
-      #   run: yarn
-      # - name: Get cache node_modules
-      #   id: cached-yarn
-      #   uses: actions/cache@v1.0.3
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-progress-bars
+      - name: Get cache node_modules
+        id: cached-yarn
+        uses: actions/cache@v1.0.3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-progress-bars
 
       - name: Install package
+        if: steps.cached-yarn.outputs.cache-hit != 'true'
         run: yarn
+      - name: Get cache node_modules
+        id: cached-yarn
+        uses: actions/cache@v1.0.3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-progress-bars
+
+      # - name: Install package
+      #   run: yarn
 
       - name: Testing
         run: yarn test-ci
