@@ -1,18 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import 'antd/dist/antd.css';
+import { Provider } from 'react-redux';
 
+import store from './redux/store';
 import './App.scss';
-import AppInit from './components/AppInit';
-import ProgressBars from './components/ProgressBars';
+import Main from './components/Main';
 
-const App = ({ bars }) => {
-  if (bars.length === 0) return <AppInit />;
-  return <ProgressBars />;
-};
+const App = () => (
+  <Provider store={store}>
+    <Main />
+  </Provider>
+);
 
-const mapStateToProps = ({ bar }) => ({
-  bars: bar.bars,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

@@ -16,26 +16,28 @@ const AppInit = ({ dispatch, loading }) => {
   if (loading)
     return (
       <div className="appContainer">
-        <Spin size="large" />
+        <Spin size="large" data-testid="appLoading" />
       </div>
     );
 
   return (
     <div className="appDefaultContainer">
-      <Result
-        status="warning"
-        title="There are some problems with your connection."
-        extra={
-          <Button
-            type="primary"
-            key="retry"
-            style={{ width: 100 }}
-            onClick={onRetry}
-          >
-            Retry
-          </Button>
-        }
-      />
+      <div data-testid="appDefault">
+        <Result
+          status="warning"
+          title="There are some problems with your connection."
+          extra={
+            <Button
+              type="primary"
+              key="retry"
+              style={{ width: 100 }}
+              onClick={onRetry}
+            >
+              Retry
+            </Button>
+          }
+        />
+      </div>
     </div>
   );
 };
