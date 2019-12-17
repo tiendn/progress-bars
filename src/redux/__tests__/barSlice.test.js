@@ -1,15 +1,19 @@
-import barReducer from '../barSlice';
+// import barReducer from '../barSlice';
 
 import { defaultState } from '../barSlice';
+import configureStore from '../../redux/store';
 
 describe('barSlice', () => {
   let state;
+  let store;
+
   beforeEach(() => {
+    store = configureStore;
     state = defaultState;
   });
 
   it('should return the initial state', () => {
-    expect(barReducer(null, {})).toEqual(state);
+    expect(store.getState().bar).toEqual(state);
   });
 
   //   it('should handle the getBarAsync action correctly', () => {
