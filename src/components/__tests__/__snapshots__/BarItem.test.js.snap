@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders matching snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="barItem"
+    >
+      <div
+        class="barItemHighlight barItemLimit barItemActive"
+        data-testid="barItemHightlight"
+        style="width: 100%;"
+      />
+      <span
+        class="barItemTextValue"
+        data-testid="barItemValue"
+      >
+        120
+        %
+      </span>
+    </div>
+  </div>
+</body>
+`;

@@ -31,7 +31,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
       className="barAction"
       onClick={() => onChangePoint(point)}
     >
-      {point}
+      {point > 0 ? `+${point}` : point}
     </Button>
   ));
 
