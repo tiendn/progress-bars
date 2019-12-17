@@ -25,7 +25,7 @@ const BarItem = ({ active, limit, value }) => {
         style={{ width: `${width}%` }}
       />
       <span data-testid="barItemValue" className={textValueClassName}>
-        {percent}%
+        {percent}% ({value} / {limit})
       </span>
     </div>
   );

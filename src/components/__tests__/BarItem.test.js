@@ -17,10 +17,13 @@ it('renders matching snapshot', () => {
 
 it('render right value', async () => {
   const value = 120;
-  const { findByTestId } = render(<BarItem value={value} limit={100} active />);
+  const limit = 100;
+  const { findByTestId } = render(
+    <BarItem value={value} limit={limit} active />,
+  );
   const textValue = await findByTestId('barItemValue');
 
-  expect(textValue.innerHTML).toBe(`${value}%`);
+  expect(textValue.innerHTML).toBe(`${value}% (${value} / ${limit})`);
 });
 
 it('render with class "barItemLimit" when the value over limit', async () => {

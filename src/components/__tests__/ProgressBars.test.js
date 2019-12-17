@@ -41,7 +41,9 @@ describe('ProgressBars testing', () => {
 
     fireEvent.click(BarButtonFirst);
 
-    expect(BarItemFirst.innerHTML).toBe('58%');
+    // 59 + 41 = 100
+    // limit = 170
+    expect(BarItemFirst.innerHTML).toBe('58% (100 / 170)');
   });
 
   it('change bar value after fire event click button, with current index = 0, value = 59, add -47 with button index = 3 two times', async () => {
@@ -62,6 +64,8 @@ describe('ProgressBars testing', () => {
     fireEvent.click(BarButtonThird);
     fireEvent.click(BarButtonThird);
 
-    expect(BarItemFirst.innerHTML).toBe('0%');
+    // 59 - 47 - 47 < 0
+    // limit = 170
+    expect(BarItemFirst.innerHTML).toBe('0% (0 / 170)');
   });
 });
