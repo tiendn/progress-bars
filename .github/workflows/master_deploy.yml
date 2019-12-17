@@ -30,8 +30,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      # - name: Install package
-      #   run: yarn
+
+      - name: Install package
+        run: yarn
+
       - name: Testing
         run: yarn test-ci
       - name: Deploy to GH Pages
