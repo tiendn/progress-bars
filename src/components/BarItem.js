@@ -13,7 +13,7 @@ const BarItem = ({ active, limit, value }) => {
 
   const textValueClassName = classNames(
     'barItemTextValue',
-    width < 10 ? 'barItemTextValueNegative' : '',
+    width < 55 ? 'barItemTextValueNegative' : '',
   );
 
   return (

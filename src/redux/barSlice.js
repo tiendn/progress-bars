@@ -8,7 +8,7 @@ const defaultState = {
   bars: [],
   limit: 9999,
   currentBarIndex: 0,
-  loading: false,
+  loading: true,
 };
 
 const barSlice = createSlice({

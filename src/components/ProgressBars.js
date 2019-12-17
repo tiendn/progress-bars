@@ -46,6 +46,7 @@ const ProgressBars = ({ dispatch, bars, limit, buttons, currentBarIndex }) => {
           onChange={onChangeCurrentBar}
           placeholder="Please select"
           style={{ marginRight: 10 }}
+          className="barAction"
         >
           {barOptions}
         </Select>
