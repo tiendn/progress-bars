@@ -43,4 +43,25 @@ describe('ProgressBars testing', () => {
 
     expect(BarItemFirst.innerHTML).toBe('58%');
   });
+
+  it('change bar value after fire event click button, with current index = 0, value = 59, add -47 with button index = 3 two times', async () => {
+    const barIndex = 0;
+
+    store.dispatch(fetchBarDataDone({ ...mockData }));
+    store.dispatch(changeActiveBar({ barIndex }));
+
+    const { getAllByTestId } = render(
+      <Provider store={store}>
+        <ProgressBars />
+      </Provider>,
+    );
+
+    const BarButtonThird = await getAllByTestId('barButton')[3];
+    const BarItemFirst = await getAllByTestId('barItemValue')[0];
+
+    fireEvent.click(BarButtonThird);
+    fireEvent.click(BarButtonThird);
+
+    expect(BarItemFirst.innerHTML).toBe('0%');
+  });
 });
